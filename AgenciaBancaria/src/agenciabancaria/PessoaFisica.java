@@ -9,7 +9,7 @@ package agenciabancaria;
  *
  * @author kevin
  */
-public class PessoaFisica extends ContaBanco{
+public final class PessoaFisica extends ContaBanco{
     private String cpf;
     private String dataNascimento;
     
@@ -60,7 +60,7 @@ public class PessoaFisica extends ContaBanco{
         System.out.print("Data de nascimento __/__/__ : ");
         this.setCpf(entradaString.nextLine());
 
-        System.out.println("Saldo atual R$ "+ this.getSaldo());
+        System.out.println("Saldo Atual R$ "+ formatacao.format(this.getSaldo()));
 
         this.menuPerfil();
                 
@@ -75,7 +75,7 @@ public class PessoaFisica extends ContaBanco{
             switch(this.getOpcao()){
                 case 1:
                     System.out.println("Perfil | Saldo");
-                    System.out.println("Saldo R$ "+ this.getSaldo());
+                    System.out.println("Saldo Atual R$ "+ formatacao.format(this.getSaldo()));
                 break;
                 
                 case 2:
@@ -94,6 +94,17 @@ public class PessoaFisica extends ContaBanco{
                     System.out.print("R$ ");
                     this.sacar(entradaDouble.nextDouble());
                     System.out.println();
+                break;
+                
+                case 4:
+                    System.out.println("Perfil | Dados");
+                    System.out.printf("Ola, %s aqui estam seus dados cadastrais\n", this.getNome());
+                    
+                    System.out.printf("Nome: %s \n", this.getNome());
+                    System.out.printf("CPF: %s \n", this.getCpf());
+                    System.out.printf("Nascimento: %s \n", this.getNome());
+                    System.out.println("Saldo Atual R$ "+ formatacao.format(this.getSaldo()));
+                    
                 break;
                 
                 case 0:

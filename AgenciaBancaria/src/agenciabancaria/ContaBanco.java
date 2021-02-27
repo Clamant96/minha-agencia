@@ -5,6 +5,7 @@
  */
 package agenciabancaria;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 /**
@@ -22,8 +23,7 @@ public class ContaBanco {
     Scanner entradaString = new Scanner(System.in);
     Scanner entradaDouble = new Scanner(System.in);
     
-    /*PessoaFisica pf = new PessoaFisica();
-    PessoaJuridica pj = new PessoaJuridica();*/
+    DecimalFormat formatacao = new DecimalFormat("0.00");
     
     public ContaBanco(){
     }
@@ -188,6 +188,46 @@ public class ContaBanco {
         System.out.println("Ola, "+ this.getNome() +" seja bem-vindo ao Connect Bank, seu banco digital.");
         System.out.println("O que voce deseja fazer hoje?");
         
+        /*do{
+            // MENU PERFIL - CONTA
+            this.opcaoConta();
+            this.setOpcao(entradaOpcao.nextInt());
+            
+            switch(this.getOpcao()){
+                case 1:
+                    System.out.println("Perfil | Saldo");
+                    System.out.println("Saldo R$ "+ this.getSaldo());
+                break;
+                
+                case 2:
+                    System.out.println("Perfil | Deposito");
+                    System.out.println("Quando voce deseja depositar");
+                    
+                    System.out.print("R$ ");
+                    this.depositar(entradaDouble.nextDouble());
+                    System.out.println();
+                break;
+                
+                case 3:
+                    System.out.println("Perfil | Saque");
+                    System.out.print("Quando voce deseja sacar");
+                    
+                    System.out.print("R$ ");
+                    this.sacar(entradaDouble.nextDouble());
+                    System.out.println();
+                break;
+                
+                case 0:
+                    System.out.println("Ate breve!!");
+                break;
+                
+                default:
+                    System.out.println("Opcao invalida!!");
+                break;
+            }
+        
+        }while(this.getOpcao() != 0);*/
+        
     }
     
     // MENU PERFIL - CONTA
@@ -196,6 +236,7 @@ public class ContaBanco {
         System.out.println("1 - Verificar saldo");
         System.out.println("2 - Fazer deposito");
         System.out.println("3 - Realizar saque");
+        System.out.println("4 - Verificar Dados");
         System.out.println("0 - Logout");
         System.out.println("|====================|");
         System.out.print("==> ");

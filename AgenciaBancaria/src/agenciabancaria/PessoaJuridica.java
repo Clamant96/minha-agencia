@@ -9,7 +9,7 @@ package agenciabancaria;
  *
  * @author kevin
  */
-public class PessoaJuridica extends ContaBanco{
+public final class PessoaJuridica extends ContaBanco{
     private String cnpj;
     private int saldo;
     
@@ -48,7 +48,7 @@ public class PessoaJuridica extends ContaBanco{
         System.out.print("CNPJ: ");
         this.setCnpj(entradaString.nextLine());
 
-        System.out.println("Saldo atual R$ "+ this.getSaldo());
+        System.out.println("Saldo Atual R$ "+ formatacao.format(this.getSaldo()));
 
         this.menuPerfil();
 
@@ -63,7 +63,7 @@ public class PessoaJuridica extends ContaBanco{
             switch(this.getOpcao()){
                 case 1:
                     System.out.println("Perfil | Saldo");
-                    System.out.println("Saldo R$ "+ this.getSaldo());
+                    System.out.println("Saldo Atual R$ "+ formatacao.format(this.getSaldo()));
                 break;
                 
                 case 2:
@@ -82,6 +82,16 @@ public class PessoaJuridica extends ContaBanco{
                     System.out.print("R$ ");
                     this.sacar(entradaDouble.nextDouble());
                     System.out.println();
+                break;
+                
+                case 4:
+                    System.out.println("Perfil | Meus Dados");
+                    System.out.printf("Ola, %s aqui estam seus dados cadastrais\n", this.getNome());
+                    
+                    System.out.printf("Nome: %s \n", this.getNome());
+                    System.out.printf("CNPJ: %s \n", this.getCnpj());
+                    System.out.println("Saldo Atual R$ "+ formatacao.format(this.getSaldo()));
+                    
                 break;
                 
                 case 0:
